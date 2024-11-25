@@ -34,12 +34,12 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="Hello Kamesh"
+                    android:text="Hello "
                     android:textColor="@color/white"
                     android:textSize="19sp"
                     android:textStyle="bold"
@@ -53,8 +53,8 @@
                     android:text="kameshs366@gmail.com"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    app:layout_constraintStart_toStartOf="@+id/userName"
+                    app:layout_constraintTop_toBottomOf="@+id/userName" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <EditText

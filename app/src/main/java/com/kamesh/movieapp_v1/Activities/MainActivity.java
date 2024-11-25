@@ -5,7 +5,8 @@ import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
+import android.widget.TextView;
+import android.content.SharedPreferences;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +36,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private FirebaseDatabase database;
+    private TextView userName;
+    private TextView emailText;
 
     private Handler sliderHandler = new Handler();
 
@@ -51,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         database =  FirebaseDatabase.getInstance();
-
+        userName = findViewById(R.id.userName);
+        emailText = findViewById(R.id.textView2);
+        String username = getIntent().getStringExtra("username");
+        String email = getIntent().getStringExtra("email");
+        userName.setText("Hello, " + username + "!");
+        emailText.setText(email);
         Window w=getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
@@ -63,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        // Clear login data when the app is paused
+        SharedPreferences preferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("isLoggedIn", false); // Clear login status
+        editor.putString("username", null);    // Clear username
+        editor.putString("email", null);       // Clear email
+        editor.apply();
         sliderHandler.removeCallbacks(sliderRunnable);
     }
 
