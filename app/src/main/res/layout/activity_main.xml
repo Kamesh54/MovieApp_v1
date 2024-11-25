@@ -30,7 +30,7 @@
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/profile"
+                    app:srcCompat="@drawable/profile_male_foreground"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:text="Hello "
                     android:textColor="@color/white"
                     android:textSize="19sp"
@@ -54,7 +54,8 @@
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/userName"
-                    app:layout_constraintTop_toBottomOf="@+id/userName" />
+                    app:layout_constraintTop_toBottomOf="@+id/userName"
+                    app:layout_constraintVertical_bias="0.361" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <EditText
@@ -102,7 +103,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -156,6 +159,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal">
 
                 <TextView
