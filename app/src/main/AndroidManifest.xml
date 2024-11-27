@@ -43,6 +43,9 @@
             android:name=".Activities.DetailActivity"
             android:exported="false" />
 
+        <activity android:name=".Activities.SplitCalculatorActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

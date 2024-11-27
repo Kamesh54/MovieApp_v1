@@ -1,7 +1,11 @@
 package com.kamesh.movieapp_v1.Activities;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,6 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.kamesh.movieapp_v1.Adapters.FilmListAdapter;
 import com.kamesh.movieapp_v1.Adapters.SlidersAdapter;
 import com.kamesh.movieapp_v1.Domains.Film;
@@ -62,6 +67,18 @@ public class MainActivity extends AppCompatActivity {
         emailText.setText(email);
         Window w=getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        ChipNavigationBar chipNavigationBar = findViewById(R.id.chipNavigationBar);
+
+        chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int id) {
+                 if (id == R.id.calculator) {
+                    startActivity(new Intent(MainActivity.this, SplitCalculatorActivity.class));
+                }
+            }
+        });
+
+
 
         initBanner();
         initTopMovies();
